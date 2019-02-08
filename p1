@@ -1,0 +1,58 @@
+#include <iostream>
+#include <fstream>
+#include <iomanip>
+
+using namespace std;
+
+int check(int X, int Y) {
+	int c = 0;
+	if (X = 0)
+		int c = 7;
+	else if (Y = 0)
+		int c = 6;
+	else if ((X = 0) && (Y = 0))
+		int c = 5;
+	if (X > 0 && Y > 0)
+		int c = 1;
+	else if (X < 0 && Y > 0)
+		int c = 2;
+	else if (X < 0 && Y < 0)
+		int c = 3;
+	else if (X > 0 && Y < 0)
+		int c = 4;
+	return c;
+}
+
+int main() {
+	setlocale(LC_ALL, "Rus");
+	ofstream fout("koord.txt");
+	int c, X, Y;
+	char a;
+			do {
+				cout << "X = ";
+				cin >> X;
+				cout << "Y = ";
+				cin >> Y;
+				c = check(X, Y);
+				if (c < 5) {
+					fout << setiosflags(ios::left)
+						<< setw(5) << "X = " << X
+						<< setw(5) << "  Y =" << Y << "  "
+						<< setw(5) << c << '\n';
+				}
+				else {
+					fout << setiosflags(ios::left)
+						<< setw(5) << "X = " << X
+						<< setw(5) << "  Y =" << Y << "  "
+						<< setw(5) << "Четверть не определена" << '\n';
+				}
+				cout << "Нажмите Y для продолжения программы, N для завершения программы: ";
+				cin >> a;
+				while ((a != 'Y') && (a != 'N')) {
+					cout << "Нажмите Y для продолжения программы, N для завершения программы: ";
+					cin >> a;
+				}
+			} while (a != 'N');
+	system("pause");
+	return 0;
+}
