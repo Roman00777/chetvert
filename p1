@@ -26,14 +26,14 @@ int check(int X, int Y) {
 int main() {
 	setlocale(LC_ALL, "Rus");
 	ofstream fout("koord.txt");
-	int c, X, Y;
+	int X, Y;
 	char a;
 			do {
 				cout << "X = ";
 				cin >> X;
 				cout << "Y = ";
 				cin >> Y;
-				c = check(X, Y);
+				int c = check(X, Y);
 				if (c < 5) {
 					fout << setiosflags(ios::left)
 						<< setw(5) << "X = " << X
